@@ -8,8 +8,8 @@ namespace UsabilityProject.Model
 {
     public class AppDbContext:DbContext
     {
-        DbSet<AppRole> Roles { get; set; }
-        DbSet<AppUser> Users { get; set; }
+        public DbSet<AppRole> Roles { get; set; }
+        public DbSet<AppUser> Users { get; set; }
         public AppDbContext()
         {
             

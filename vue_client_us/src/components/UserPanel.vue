@@ -3,7 +3,7 @@
 
         <UserSidebar />
         <nav class="navbar navbar-dark bg-dark d-flex justify-content-end nav_main ">
-            <button class="btn btn-sm btn-outline-secondary" v-on:click="log_out">logout</button>
+            sdfzxf<button class="btn btn-sm btn-outline-secondary" v-on:click="log_out">logout</button>
         </nav>
         <div class="page-content">
             <router-view />

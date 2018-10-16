@@ -5,7 +5,7 @@ export default {
     state: {
         token: localStorage.getItem("accessToken"),
         endpoints: {
-            getTokenURL: '/token',
+            getTokenURL: '/token/',
             refreshJWT: 'http://0.0.0.0:10000/auth/refresh_token',
             getRoleURL: '/api/values/getrole',
             getNameURL: '/api/values/getlogin',

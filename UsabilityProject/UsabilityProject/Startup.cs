@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using UsabilityProject.Model;
+using UsabilityProject.Services.UserManager;
 
 namespace UsabilityProject
 {
@@ -24,8 +25,12 @@ namespace UsabilityProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            
             services.AddDbContext<AppDbContext>();
+            services.AddCors();           
+            services.AddTransient<MyUserManager>();
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,7 +40,12 @@ namespace UsabilityProject
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseAuthentication();
+            app.UseCors(builder => builder.AllowAnyHeader()
+                                          .AllowAnyMethod()
+                                          .AllowAnyOrigin());
             app.UseMvc();
         }
     }
