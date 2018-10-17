@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using UsabilityProject.Model;
+using UsabilityProject.Services.SamplesManager;
 using UsabilityProject.Services.UserManager;
 
 namespace UsabilityProject
@@ -29,6 +30,7 @@ namespace UsabilityProject
             services.AddDbContext<AppDbContext>();
             services.AddCors();           
             services.AddTransient<MyUserManager>();
+            services.AddTransient<ISamplesManager, SamplesManager>();
             services.AddMvc();
 
         }

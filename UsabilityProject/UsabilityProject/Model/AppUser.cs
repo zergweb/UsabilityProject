@@ -10,7 +10,7 @@ namespace UsabilityProject.Model
         public int Id { get; set; }
         public String Login { get; set; }
         public String Password { get; set; }
-        public int RoleId { get; set; }
+        public int? RoleId { get; set; }
         public AppRole Role { get; set; }
         public String Name { get; set; }
         public DateTime Date { get; set; }

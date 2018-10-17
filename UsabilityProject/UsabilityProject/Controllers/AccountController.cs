@@ -21,7 +21,13 @@ namespace UsabilityProject.Controllers
          {
             userManager = _userManager;
          }
-       
+        [HttpGet("/createfakeusers")]
+        public void CreateFakeUsers()
+        {
+            userManager.CreateFakeUsers();
+        }
+
+
         [HttpPost("/token")]
         public async Task Token()
         {

@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace UsabilityProject.Model
 {
     public class AppDbContext:DbContext
-    {
+    {      
         public DbSet<AppRole> Roles { get; set; }
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<Sample> Samples { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public AppDbContext()
         {
             

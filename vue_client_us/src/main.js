@@ -4,9 +4,11 @@ import App from './App.vue'
 import router from './router'
 import store from '@/store/store'
 import bootstrap from 'vue-cli-plugin-bootstrap' 
+import Chart from 'vue2-frappe'
 import { HTTP } from '@/http/http'
 Vue.config.productionTip = false
 Vue.use(bootstrap)
+Vue.use(Chart)
 
 HTTP.interceptors.request.use((config) => {
     const token = store.getters['auth/token'];

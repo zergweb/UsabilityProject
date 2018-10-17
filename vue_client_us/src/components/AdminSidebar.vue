@@ -5,20 +5,20 @@
                 <router-link to="/main_page"
                              active-class="active"
                              class="nav_item"
-                              v-on:click.native="change_animate"
+                             
                              >
                     <font-awesome-icon icon="dove" />
                     <span class="sidebar_text">Main Page</span>
                 </router-link>
             </li>
             <li>
-                <router-link to="/create_sample"
+                <router-link to="create_selection"
                              active-class="active"
                              class="nav_item"
-                             v-on:click.native="change_animate"
+                            
                              >
                     <font-awesome-icon icon="atom" />
-                    <span class="sidebar_text">Create Sample</span>
+                    <span class="sidebar_text">Create Selection</span>
                 </router-link>
             </li>            
         </ul>

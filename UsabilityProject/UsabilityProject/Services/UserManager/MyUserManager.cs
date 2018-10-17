@@ -14,6 +14,28 @@ namespace UsabilityProject.Services.UserManager
         {
 
         }
+        public void CreateFakeUsers()
+        {
+            List<AppUser> users = new List<AppUser>();
+            DateTime Start = new DateTime(1986, 1, 1);
+            DateTime Stop = new DateTime(2000, 12, 28);
+            for (int i=0;i<100;i++)
+            {          
+                users.Add(new AppUser
+                {
+                    RoleId = 3,
+                    Login = "fake_user" + i.ToString(),
+                    Password = CreatePassword(5),
+                    Date = RandomDay(Start, Stop),
+                    Name = "fake_name" + i.ToString(),
+                });
+            }
+            using(AppDbContext db= new AppDbContext())
+            {
+                db.Users.AddRange(users);
+                db.SaveChanges();
+            }
+        }
         public AppUser RegisterNewUser(String name)
         {
             using (AppDbContext db = new AppDbContext())
@@ -41,7 +63,7 @@ namespace UsabilityProject.Services.UserManager
         }
         public ClaimsIdentity GetIdentity(string username, string password)
         {
-            using(AppDbContext db= new AppDbContext())
+            using(AppDbContext db = new AppDbContext())
             {
                 AppUser person = db.Users.Include(p => p.Role).FirstOrDefault(x => x.Login == username && x.Password == password);
                 if (person != null)
@@ -73,6 +95,11 @@ namespace UsabilityProject.Services.UserManager
                 builder.Append(ch);
             }
             return builder.ToString();
+        }
+        private DateTime RandomDay(DateTime start, DateTime stop)
+        {
+            Random rnd = new Random();
+            return start.AddDays(rnd.Next(0, new TimeSpan(stop.Ticks - start.Ticks).Days));
         }
     }
 }

@@ -26,7 +26,7 @@ export default {
         },
         isAdmin(state) {   
             if (state.roles.some(function (item) {
-                return item == "admin";
+                return item == "health_worker";
             })) {
                 return true;
             } else {
@@ -39,11 +39,16 @@ export default {
     },
     mutations: {
         set_roles(state, roles) {
+            console.log(roles);
+            console.log(state.roles);
             state.roles = roles;
+            console.log(state.roles);
+            console.log("set roles");
         },
         updateToken(state, newToken) {
             localStorage.setItem('accessToken', newToken);
             state.token = newToken;
+            console.log("update_token");
         },
         removeToken(state) {
             localStorage.removeItem('accessToken');

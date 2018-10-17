@@ -6,7 +6,6 @@
             <button class="btn btn-sm btn-outline-secondary" v-on:click="log_out">logout</button>
         </nav>
         <div class="page-content">
-            <h1>Admin</h1>
             <router-view />
         </div>
     </section>
