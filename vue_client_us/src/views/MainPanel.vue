@@ -45,7 +45,6 @@
         min-height: 100vh;
         width: calc(100% - 280px);
         padding: 0;
-        padding-top: 40px;
         margin-left: 280px;
     }
 </style>

@@ -5,9 +5,9 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col"  @click="sortParam=='sortByNameASC' ? sortParam='sortByNameDESC' : sortParam='sortByNameASC' ">Name</th>
-                    <th scope="col" @click="sortParam='sortByPulse'">Pulse</th>
+                    <th scope="col" @click="sortParam=='sortByPulseASC' ? sortParam='sortByPulseDESC' : sortParam='sortByPulseASC' ">Pulse</th>
                     <th scope="col">Temperature</th>
-                    <th scope="col">Date</th>
+                    <th scope="col" @click="sortParam=='sortByDateASC' ? sortParam='sortByDateDESC' : sortParam='sortByDateASC' ">Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +78,10 @@
                 switch (this.sortParam) {
                     case 'sortByNameASC': return this.List_data.sort(sortByNameASC);
                     case 'sortByNameDESC': return this.List_data.sort(sortByNameDESC);
-                    case 'sortByPulse': return this.List_data.sort(sortByPulse);
+                    case 'sortByPulseASC': return this.List_data.sort(sortByPulseASC);
+                    case 'sortByPulseDESC': return this.List_data.sort(sortByPulseDESC);
+                    case 'sortByDateASC': return this.List_data.sort(sortByDateASC);
+                    case 'sortByDateDESC': return this.List_data.sort(sortByDateDESC);
                     default: return this.List_data;                                      
                 }
             },
@@ -106,7 +109,10 @@
     }
     var sortByNameASC = function (d1, d2) { return (d1.user.name.toLowerCase() > d2.user.name.toLowerCase()) ? 1 : -1 };
     var sortByNameDESC = function (d1, d2) { return (d1.user.name.toLowerCase() < d2.user.name.toLowerCase()) ? 1 : -1 };
-    var sortByPulse = function (d1, d2) { return (d1.pulse > d2.pulse) ? 1 : -1 };
+    var sortByPulseASC = function (d1, d2) { return (d1.pulse > d2.pulse) ? 1 : -1 };
+    var sortByPulseDESC = function (d1, d2) { return (d1.pulse < d2.pulse) ? 1 : -1 };
+    var sortByDateASC = function (d1, d2) { return (d1.date > d2.date) ? 1 : -1 };
+    var sortByDateDESC = function (d1, d2) { return (d1.date < d2.date) ? 1 : -1 };
 </script>
 <style scoped>
     .page-link {
