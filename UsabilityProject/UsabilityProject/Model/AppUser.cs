@@ -14,5 +14,7 @@ namespace UsabilityProject.Model
         public AppRole Role { get; set; }
         public String Name { get; set; }
         public DateTime Date { get; set; }
+        public int? DepartmentId{ get; set; }
+        public Department Department { get; set; }
     }
 }

@@ -3,7 +3,7 @@ import { HTTP } from '@/http/http.js'
 export default {
     namespaced: true,
     state: {
-        samples: []
+        samples: [{ user: {name:' '}}]
     },
     getters: {
         samples(state) {

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UsabilityProject.Model;
 
 namespace UsabilityProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181022220226_updatemodel")]
+    partial class updatemodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,18 +91,6 @@ namespace UsabilityProject.Migrations
                     b.HasIndex("AppUserId");
 
                     b.ToTable("Samples");
-                });
-
-            modelBuilder.Entity("UsabilityProject.Model.SampleDate", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Date");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SampleDates");
                 });
 
             modelBuilder.Entity("UsabilityProject.Model.AppUser", b =>

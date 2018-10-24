@@ -11,6 +11,7 @@ namespace UsabilityProject.Model
         public DbSet<AppRole> Roles { get; set; }
         public DbSet<AppUser> Users { get; set; }
         public DbSet<Sample> Samples { get; set; }
+        public DbSet<SampleDate> SampleDates { get; set; }
         public DbSet<Department> Departments { get; set; }
         public AppDbContext()
         {

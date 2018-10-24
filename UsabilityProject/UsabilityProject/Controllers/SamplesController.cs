@@ -22,11 +22,15 @@ namespace UsabilityProject.Controllers
             sm.CreateFakeSamples();           
         }
         [HttpGet("/samples/last_samples/")]
-        public JsonResult GetSamples()
+        public async Task<JsonResult> GetSamples()
         {       
-            return Json(sm.getSamplesList());
+            return  Json(await sm.getSamplesList());
         }
-
+        [HttpPost("/samples/custom_samples/")]
+        public async Task<JsonResult> GetCustomSamples(SamplesSelectionModel selection)
+        {
+            return Json(await sm.getCustomSamplesList(selection));
+        }
 
 
 

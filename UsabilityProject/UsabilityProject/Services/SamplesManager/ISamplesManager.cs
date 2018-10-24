@@ -9,6 +9,7 @@ namespace UsabilityProject.Services.SamplesManager
     public interface ISamplesManager
     {
         void CreateFakeSamples();
-        List<SampleToJson> getSamplesList();
+        Task<List<SampleToJson>> getSamplesList();
+        Task<List<SampleToJson>> getCustomSamplesList(SamplesSelectionModel selection);
     }
 }

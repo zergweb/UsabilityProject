@@ -11,32 +11,22 @@
                     :colors="['purple', '#ffa3ef', 'light-blue']"
                     :dataSets="this.datasets_c">
         </vue-frappe>
-        <table class="table table-dark table-striped table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Pulse</th>
-                    <th scope="col">Temperature</th>
-                    <th scope="col">Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="item in samples">
-                    <th scope="col">{{item.id}}</th>
-                    <th scope="col">{{item.user.name}}</th>
-                    <th scope="col">{{item.pulse}}</th>
-                    <th scope="col">{{item.temperature}}</th>
-                    <th scope="col">{{item.date}}</th>
-                </tr>
-            </tbody>
-        </table>
+       
+                <PaginatedList :List_data="samples"
+                                :Page_size=10>
+                    <SampleTableItem slot-scope="prop" :item="prop"  />
+                </PaginatedList>
+
+               
+        
     </div>
 </template>
 <script>// @ is an alias to /src
     import { mapGetters } from 'vuex'
     import { mapActions } from 'vuex'
     import { HTTP } from '@/http/http'
+    import PaginatedList from '@/components/PaginatedList/PaginatedList'
+    import SampleTableItem from '@/components/PaginatedList/SampleTableItem'
 
 
 export default {
@@ -51,7 +41,8 @@ export default {
             }
         },
         components: {
-
+            PaginatedList,
+            SampleTableItem
         },
         computed: {
             ...mapGetters('samples', {

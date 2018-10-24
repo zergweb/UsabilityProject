@@ -10,9 +10,9 @@ export default new Router({
       name: '/main_page',
       component: () => import('./views/MainPage.vue'),
           beforeEnter(from, to, next) {
-              console.log("beforeenter");
+             console.log("beforeenter");
              Store.dispatch('samples/load_data');
-              next();
+             next();
           }
       },
       {

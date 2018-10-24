@@ -10,7 +10,7 @@ export default {
             getRoleURL: '/api/values/getrole',
             getNameURL: '/api/values/getlogin',
         },
-        roles: []
+        roles: localStorage.getItem("roles")
     },
     getters: {
          token(state) {
@@ -25,13 +25,17 @@ export default {
             }            
         },
         isAdmin(state) {   
-            if (state.roles.some(function (item) {
-                return item == "health_worker";
-            })) {
-                return true;
+            console.log(state.roles);
+            if (state.roles != "health_worker") {
+                if (state.roles.some(function (item) { return item == "health_worker"; })) {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-                return false;
-            }      
+                return true;
+            }
+                
         },
         getTokenURL(state) {
             return state.endpoints.getTokenURL;
@@ -39,22 +43,20 @@ export default {
     },
     mutations: {
         set_roles(state, roles) {
-            console.log(roles);
-            console.log(state.roles);
+            
+            localStorage.setItem('roles', roles);
             state.roles = roles;
-            console.log(state.roles);
-            console.log("set roles");
         },
         updateToken(state, newToken) {
             localStorage.setItem('accessToken', newToken);
             state.token = newToken;
-            console.log("update_token");
         },
         removeToken(state) {
             localStorage.removeItem('accessToken');
             state.token = null;
         },
         removeRoles(state) {
+            localStorage.removeItem('roles');
             state.roles = null;
         }
 

@@ -19,8 +19,9 @@ namespace UsabilityProject.Services.UserManager
             List<AppUser> users = new List<AppUser>();
             DateTime Start = new DateTime(1986, 1, 1);
             DateTime Stop = new DateTime(2000, 12, 28);
+            Random rand = new Random();
             for (int i=0;i<100;i++)
-            {          
+            {
                 users.Add(new AppUser
                 {
                     RoleId = 3,
@@ -28,6 +29,7 @@ namespace UsabilityProject.Services.UserManager
                     Password = CreatePassword(5),
                     Date = RandomDay(Start, Stop),
                     Name = "fake_name" + i.ToString(),
+                    DepartmentId = rand.Next(1, 5)
                 });
             }
             using(AppDbContext db= new AppDbContext())
