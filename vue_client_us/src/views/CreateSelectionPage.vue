@@ -1,5 +1,4 @@
-<template> 
-    
+<template>     
         <div class="row">
             <div class="col-md-6">
                 <label class="row select_block ">
@@ -47,13 +46,7 @@
                         <SampleTableItem slot-scope="prop" :item="prop" />
                     </PaginatedList>             
             </div>
-        </div>
-       
-        
-        
-
-        
-
+        </div>                          
 </template>
 <script>// @ is an alias to /src
     import { mapGetters } from 'vuex'

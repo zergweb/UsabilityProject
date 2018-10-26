@@ -25,8 +25,7 @@ export default {
     actions: {
         load_data(store) {
             console.log("loaded samples");
-            HTTP.get('/samples/last_samples/')
-               // .then(response => response.json())
+            HTTP.post('/samples/last_samples/')              
                 .then(data => {
                     store.commit('load_data', data.data);
                     store.commit('Load_True');

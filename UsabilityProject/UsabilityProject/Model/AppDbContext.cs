@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,12 +16,10 @@ namespace UsabilityProject.Model
         public DbSet<SampleDate> SampleDates { get; set; }
         public DbSet<Department> Departments { get; set; }
         public AppDbContext()
-        {
-            
+        {       
         }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        {        
             optionsBuilder
             .UseMySql("server=localhost;port=3306;database=usability_project;uid=root;password=1234;",
             b => b.MigrationsAssembly("UsabilityProject")

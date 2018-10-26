@@ -26,8 +26,6 @@ namespace UsabilityProject.Controllers
         {
             userManager.CreateFakeUsers();
         }
-
-
         [HttpPost("/token")]
         public async Task Token()
         {

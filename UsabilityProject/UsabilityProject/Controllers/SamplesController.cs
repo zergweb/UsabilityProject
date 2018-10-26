@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UsabilityProject.Model;
 using UsabilityProject.Services.SamplesManager;
 
 namespace UsabilityProject.Controllers
 {
+    [Authorize(Roles = "health_worker")]
     [Route("samples/[controller]")]
     public class SamplesController : Controller
     {
@@ -20,8 +19,8 @@ namespace UsabilityProject.Controllers
         public void CreateFakeSamples()
         {
             sm.CreateFakeSamples();           
-        }
-        [HttpGet("/samples/last_samples/")]
+        }       
+        [HttpPost("/samples/last_samples/")]
         public async Task<JsonResult> GetSamples()
         {       
             return  Json(await sm.getSamplesList());
@@ -30,36 +29,6 @@ namespace UsabilityProject.Controllers
         public async Task<JsonResult> GetCustomSamples(SamplesSelectionModel selection)
         {
             return Json(await sm.getCustomSamplesList(selection));
-        }
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        }         
     }
 }
