@@ -43,7 +43,6 @@ namespace UsabilityProject
             services.AddTransient<MyUserManager>();
             services.AddTransient<ISamplesManager, SamplesManager>();
             services.AddMvc();
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
