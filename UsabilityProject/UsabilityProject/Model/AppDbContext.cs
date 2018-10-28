@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UsabilityProject.Model
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:DbContext 
     {      
         public DbSet<AppRole> Roles { get; set; }
         public DbSet<AppUser> Users { get; set; }

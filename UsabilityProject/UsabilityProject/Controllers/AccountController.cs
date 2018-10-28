@@ -28,8 +28,7 @@ namespace UsabilityProject.Controllers
         }
         [HttpPost("/token")]
         public async Task Token()
-        {
-            
+        {          
             var username = Request.Form["username"];
             var password = Request.Form["password"];
             var identity = userManager.GetIdentity(username, password);
